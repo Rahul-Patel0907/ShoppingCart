@@ -34,11 +34,13 @@
   nav {
     max-width: 1280px;
     margin: 0 auto;
-    height: var(--nav-height);
+    min-height: var(--nav-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0.75rem 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
   .logo {
@@ -67,6 +69,23 @@
     flex: 1;
     max-width: 500px;
     margin: 0 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .search {
+      order: 3;
+      min-width: 100%;
+      margin: 1rem 0 0 0;
+      /* Add top margin */
+      flex-basis: 100%;
+      /* Force full width */
+    }
+
+    /* Ensure other items don't stretch weirdly */
+    .logo,
+    nav ul {
+      flex: 0 0 auto;
+    }
   }
 
   .search input {
