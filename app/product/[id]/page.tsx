@@ -28,6 +28,8 @@ const ProductDetails = () => {
                         name: data.title,
                         price: data.price,
                         description: data.description,
+                        rating: data.rating.rate,
+                        category: data.category,
                         image: data.image
                     })
 

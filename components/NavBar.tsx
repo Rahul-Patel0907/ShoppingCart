@@ -54,6 +54,7 @@ const NavBar = () => {
                 <ul>
                     <li className="cart-container">
                         <Link href="/cart">
+                            <span style={{ marginRight: '0.5rem' }}>Cart</span>
                             <Image src="/cart-icon.svg" alt="Cart" width={24} height={24} />
                         </Link>
                         <p className='cart-count'>{totalQty}</p>

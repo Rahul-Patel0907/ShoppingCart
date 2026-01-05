@@ -76,12 +76,9 @@
       order: 3;
       min-width: 100%;
       margin: 1rem 0 0 0;
-      /* Add top margin */
       flex-basis: 100%;
-      /* Force full width */
     }
 
-    /* Ensure other items don't stretch weirdly */
     .logo,
     nav ul {
       flex: 0 0 auto;
@@ -145,6 +142,7 @@
   .cart-container a {
     padding: 0.6rem 1.2rem;
     display: flex;
+    align-items: center;
   }
 
   .cart-count {
@@ -181,8 +179,6 @@
     color: var(--primary-color);
   }
 
-  /* Product Grid */
-  /* Product Grid */
   .Product-Container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -193,20 +189,15 @@
     width: 100%;
   }
 
-  /* Media queries for specific column counts are no longer needed with auto-fill */
-
-  /* Product Card */
   .Product-Card {
     background-color: var(--bg-white);
     border-radius: 1rem;
     padding: 1rem;
-    /* Reduced padding */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
-    /* Reduced gap */
     border: 1px solid #f3f4f6;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     height: 100%;
@@ -234,22 +225,18 @@
 
   .Product-Card h3 {
     font-size: 0.95rem;
-    /* Slightly smaller */
     font-weight: 600;
     color: var(--text-main);
-    text-align: center;
+    text-align: left;
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 1;
-    /* clamp to 1 line */
     line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     height: 1.5rem;
-    /* Fixed height for 1 line */
   }
 
-  /* Footer for price and button */
   .product-footer {
     display: flex;
     justify-content: center;
@@ -268,22 +255,18 @@
 
   .Product-Card button {
     width: auto;
-    /* Allow button to shrink */
     padding: 0.5rem 1rem;
-    /* Compact padding */
     background-color: var(--text-main);
     color: white;
     border: none;
     border-radius: 0.5rem;
     font-weight: 600;
     font-size: 0.85rem;
-    /* Smaller font */
     cursor: pointer;
     transition: background-color 0.2s;
     margin-top: 0;
   }
 
-  /* Product Details Page */
   .product-detail-container {
     max-width: 1000px;
     margin: 2rem auto;
@@ -292,9 +275,7 @@
     grid-template-columns: 1fr;
     gap: 3rem;
     align-items: center;
-    /* Vertically center content */
     min-height: calc(100vh - 140px);
-    /* Center on screen minus header */
   }
 
   @media (min-width: 768px) {
@@ -316,7 +297,6 @@
   .detail-image img {
     max-width: 100%;
     max-height: 300px;
-    /* Reduced from 400px */
     object-fit: contain;
   }
 
@@ -327,19 +307,15 @@
     justify-content: center;
   }
 
-  /* Row for price and button */
   .detail-actions {
     display: flex;
     align-items: center;
     gap: 2rem;
-    /* Space between price and button */
     margin-top: 1rem;
   }
 
   .detail-content h1 {
     font-size: 2rem;
-    /* Reduced from 2.5rem */
-    /* Larger Title */
     font-weight: 800;
     color: var(--text-main);
     line-height: 1.1;
@@ -363,15 +339,12 @@
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
-    /* Smaller padding */
     border-radius: 0.5rem;
     font-weight: 600;
     font-size: 1rem;
-    /* Smaller font */
     cursor: pointer;
     transition: all 0.2s;
     width: auto;
-    /* Auto width instead of full */
     text-align: center;
     box-shadow: var(--shadow-md);
   }
@@ -384,7 +357,6 @@
 
 }
 
-/* Cart Page Styles */
 .cart-page-container {
   max-width: 1280px;
   margin: 0 auto;
@@ -418,7 +390,6 @@
   font-weight: 600;
 }
 
-/* Layout */
 .cart-layout {
   display: grid;
   grid-template-columns: 1fr;
@@ -428,11 +399,9 @@
 @media (min-width: 1024px) {
   .cart-layout {
     grid-template-columns: 2fr 1fr;
-    /* 2 parts list, 1 part summary */
   }
 }
 
-/* Item Card */
 .cart-item-card {
   display: flex;
   gap: 1.5rem;
@@ -477,10 +446,8 @@
   margin-top: 0.25rem;
 }
 
-/* Actions */
 .remove-btn {
   color: #ef4444;
-  /* Red */
   background: none;
   border: none;
   font-weight: 600;
@@ -492,7 +459,6 @@
   text-decoration: underline;
 }
 
-/* Summary Box */
 .cart-summary {
   background: white;
   padding: 2rem;
@@ -570,7 +536,6 @@
   text-align: center;
 }
 
-/* Loader Styles */
 .loader-container {
   display: flex;
   justify-content: center;
