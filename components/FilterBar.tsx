@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 interface FilterBarProps {
     onFilterChange: (category: string) => void;
@@ -38,9 +39,11 @@ const FilterBar: React.FC<FilterBarProps> = ({ onFilterChange, onSortChange }) =
 
     return (
         <div className="w-full bg-white border-b border-gray-200 sticky top-[72px] z-40">
-            <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-row items-center justify-between gap-4">
 
-                <div className="flex items-center gap-2 overflow-x-auto no-scrollbar w-full sm:w-auto pb-1 sm:pb-0">
+
+                <div className="flex items-center gap-2 overflow-x-auto no-scrollbar flex-1 pb-1 sm:pb-0">
+
                     {categories.map((cat) => (
                         <button
                             key={cat}
@@ -55,21 +58,29 @@ const FilterBar: React.FC<FilterBarProps> = ({ onFilterChange, onSortChange }) =
                     ))}
                 </div>
 
-                <div className="relative self-end sm:self-auto">
+                <div className="relative">
                     <button
                         onClick={() => setIsSortOpen(!isSortOpen)}
                         className="flex items-center gap-1.5 text-sm font-medium text-gray-700 hover:text-black transition-colors"
                     >
-                        <span className="text-gray-500">Sort by:</span>
-                        <span>{selectedSort}</span>
-                        <svg
-                            className={`w-4 h-4 transition-transform ${isSortOpen ? 'rotate-180' : ''}`}
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+
+                        <div className="hidden sm:flex items-center gap-1">
+                            <span className="text-gray-500">Sort by:</span>
+                            <span>{selectedSort}</span>
+                            <svg
+                                className={`w-4 h-4 transition-transform ${isSortOpen ? 'rotate-180' : ''}`}
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+
+
+                        <div className="sm:hidden p-2 rounded-full hover:bg-gray-100">
+                            <Image src="/sort-icon.svg" alt="Sort" width={24} height={24} />
+                        </div>
                     </button>
 
                     {isSortOpen && (

@@ -42,7 +42,7 @@ const Page = () => {
 
   return (
     <div>
-      <NavBar />
+
       <FilterBar onFilterChange={setSelectedCategory} onSortChange={setSortOption} />
       <div className="Product-Container">
         {filteredProducts.map((product) => {

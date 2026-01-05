@@ -22,7 +22,7 @@ const NavBar = () => {
             <nav>
                 <Link href="/" className='logo'>
                     <Image src="/logo.png" alt="Logo" width={40} height={40} />
-                    <p>CartiFy</p>
+                    <p className="logo-text">CartiFy</p>
                 </Link>
                 <div className='search' style={{ position: 'relative' }}>
                     <input
@@ -39,22 +39,26 @@ const NavBar = () => {
                             onClick={handleClear}
                             style={{
                                 position: 'absolute',
-                                right: '110px',
+                                right: '60px', /* Adjusted to fit new layouts */
                                 top: '50%',
                                 transform: 'translateY(-50%)',
                                 width: '20px',
                                 height: '20px',
                                 cursor: 'pointer',
-                                opacity: 0.5
+                                opacity: 0.5,
+                                zIndex: 10
                             }}
                         />
                     )}
-                    <button>Search</button>
+                    <button className="search-btn">
+                        <span className="search-text">Search</span>
+                        <Image src="/search-icon.svg" alt="Search" width={20} height={20} className="search-icon" />
+                    </button>
                 </div>
                 <ul>
                     <li className="cart-container">
                         <Link href="/cart">
-                            <span style={{ marginRight: '0.5rem' }}>Cart</span>
+                            <span className="cart-text" style={{ marginRight: '0.5rem' }}>Cart</span>
                             <Image src="/cart-icon.svg" alt="Cart" width={24} height={24} />
                         </Link>
                         <p className='cart-count'>{totalQty}</p>

@@ -45,7 +45,7 @@ const ProductDetails = () => {
 
     return (
         <div>
-            <NavBar />
+
             <div className="product-detail-container">
                 <div className="detail-image">
                     <img src={product.image} alt={product.name} />

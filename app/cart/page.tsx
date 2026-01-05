@@ -15,7 +15,7 @@ const CartPage = () => {
     const router = useRouter();
     return (
         <div>
-            <NavBar />
+
             <div className='cart-page-container'>
                 <h1 className='page-title'>Your Shopping Cart</h1>
                 {cartItems.length === 0 ? (
