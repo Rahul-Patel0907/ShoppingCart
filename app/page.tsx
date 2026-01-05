@@ -74,6 +74,7 @@ const Page = () => {
                     alt={added ? "Remove" : "Add"}
                     width={16}
                     height={16}
+                    style={{ filter: added ? 'brightness(0) invert(1)' : 'none' }}
                   />
                   {added ? "Remove" : "Add"}
                 </button>

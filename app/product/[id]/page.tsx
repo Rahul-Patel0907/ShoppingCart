@@ -75,6 +75,7 @@ const ProductDetails = () => {
                                 alt={isInCart ? "Remove" : "Add to Cart"}
                                 width={16}
                                 height={16}
+                                style={{ filter: isInCart ? 'brightness(0) invert(1)' : 'none' }}
                             />
                             {isInCart ? "Remove" : "Add to Cart"}
                         </button>

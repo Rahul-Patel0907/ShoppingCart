@@ -490,18 +490,7 @@
   margin-top: 0.25rem;
 }
 
-.remove-btn {
-  color: #ef4444;
-  background: none;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
 
-.remove-btn:hover {
-  text-decoration: underline;
-}
 
 .cart-summary {
   background: white;

@@ -59,7 +59,25 @@ const CartPage = () => {
                                         <button
                                             onClick={() => dispatch(removeFromCart(item.product.id))}
                                             className="remove-btn"
+                                            style={{
+                                                backgroundColor: '#dc2626',
+                                                color: 'white',
+                                                padding: '0.5rem 1rem',
+                                                borderRadius: '0.375rem',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '0.5rem',
+                                                border: 'none',
+                                                cursor: 'pointer'
+                                            }}
                                         >
+                                            <Image
+                                                src="/remove-cart.svg"
+                                                alt="Remove"
+                                                width={16}
+                                                height={16}
+                                                style={{ filter: 'brightness(0) invert(1)' }}
+                                            />
                                             Remove
                                         </button>
                                     </div>
