@@ -78,9 +78,7 @@ const CartPage = () => {
                                 <span>${totalPrice.toFixed(2)}</span>
                             </div>
                             <button className="checkout-btn" onClick={() => {
-                                alert('Order Placed Successfully');
-                                router.push('/');
-                                dispatch(clearCart());
+                                router.push('/success');
                             }}>Proceed to Checkout</button>
 
 

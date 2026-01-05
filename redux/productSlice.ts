@@ -20,10 +20,10 @@ export const fetchProducts = createAsyncThunk(
     async () => {
         const response = await fetch("https://fakestoreapi.com/products");
         const data = await response.json();
-        // Map 'title' from API to 'name' in our interface
+
         return data.map((item: any) => ({
             id: item.id,
-            name: item.title, // Mapping title to name as per your interface
+            name: item.title,
             price: item.price,
             description: item.description,
             image: item.image,

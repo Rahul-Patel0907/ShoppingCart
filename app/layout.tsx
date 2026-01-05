@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shopping Cart",
-  description: "Shopping Cart Application",
+  title: "CartiFy",
+  description: "CartiFy E-commerce Application",
 };
 
 export default function RootLayout({
