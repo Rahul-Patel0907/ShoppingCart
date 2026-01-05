@@ -7,6 +7,8 @@ import { Product } from "@/interfaces";
 import { useDispatch } from "react-redux";
 import NavBar from '@/components/NavBar';
 import Loader from '@/components/Loader';
+import Image from 'next/image';
+import StarRating from '@/components/StarRating';
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -29,6 +31,7 @@ const ProductDetails = () => {
                         price: data.price,
                         description: data.description,
                         rating: data.rating.rate,
+                        ratingCount: data.rating.count,
                         category: data.category,
                         image: data.image
                     })
@@ -52,13 +55,27 @@ const ProductDetails = () => {
                 </div>
                 <div className="detail-content">
                     <h1>{product.name}</h1>
+                    <div style={{ margin: '0.5rem 0' }}>
+                        <StarRating rating={product.rating} count={product.ratingCount} />
+                    </div>
                     <p className="desc">{product.description}</p>
                     <div className="detail-actions">
                         <p className="price">${product.price}</p>
                         <button
                             onClick={() => isInCart ? dispatch(removeFromCart(product.id)) : dispatch(addToCart(product))}
-                            style={{ backgroundColor: isInCart ? '#dc2626' : 'black' }}
+                            style={{
+                                backgroundColor: isInCart ? '#dc2626' : 'black',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.5rem'
+                            }}
                         >
+                            <Image
+                                src={isInCart ? "/remove-cart.svg" : "/add-cart.svg"}
+                                alt={isInCart ? "Remove" : "Add to Cart"}
+                                width={16}
+                                height={16}
+                            />
                             {isInCart ? "Remove" : "Add to Cart"}
                         </button>
                     </div>

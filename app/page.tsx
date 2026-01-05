@@ -1,12 +1,13 @@
 "use client";
-import NavBar from '@/components/NavBar'
 import { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '@/redux/store'
 import { fetchProducts } from '@/redux/productSlice'
 import { addToCart, removeFromCart } from '@/redux/cartSlice'
 import Link from 'next/link';
+import Image from 'next/image';
 import Loader from '@/components/Loader';
 import FilterBar from '@/components/FilterBar';
+import StarRating from '@/components/StarRating';
 
 const Page = () => {
 
@@ -42,7 +43,6 @@ const Page = () => {
 
   return (
     <div>
-
       <FilterBar onFilterChange={setSelectedCategory} onSortChange={setSortOption} />
       <div className="Product-Container">
         {filteredProducts.map((product) => {
@@ -50,19 +50,31 @@ const Page = () => {
           return (
             <div className="Product-Card" key={product.id}>
               <Link href={`/product/${product.id}`}>
-                <img src={product.image} alt={product.name} />
+                <img src={product.image} alt={product.name} className="product-img" />
                 <h3 style={{ textAlign: 'left', margin: 0 }}>{product.name}</h3>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '0.25rem', marginTop: '0.25rem' }}>
-                  <span style={{ color: '#f59e0b', fontSize: '0.9rem' }}>★</span>
-                  <span style={{ fontSize: '0.85rem', color: '#6b7280', fontWeight: '500' }}>{product.rating}</span>
+                <div style={{ marginTop: '0.25rem' }}>
+                  <StarRating rating={product.rating} count={product.ratingCount} />
                 </div>
               </Link>
               <div className="product-footer">
                 <p>${product.price}</p>
                 <button
                   onClick={() => added ? handleRemoveFromCart(product.id) : handleAddToCart(product)}
-                  style={{ backgroundColor: added ? '#dc2626' : '' }}
+                  style={{
+                    backgroundColor: added ? '#dc2626' : '',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.4rem',
+                    padding: '0.5rem 0.8rem'
+                  }}
                 >
+                  <Image
+                    src={added ? "/remove-cart.svg" : "/add-cart.svg"}
+                    alt={added ? "Remove" : "Add"}
+                    width={16}
+                    height={16}
+                  />
                   {added ? "Remove" : "Add"}
                 </button>
               </div>

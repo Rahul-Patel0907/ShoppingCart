@@ -3,10 +3,12 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useAppSelector, useAppDispatch } from '@/redux/store'
+import { usePathname } from 'next/navigation';
 import { setSearchQuery } from '@/redux/productSlice';
 
 const NavBar = () => {
     const dispatch = useAppDispatch();
+    const pathname = usePathname();
     const { cartItems } = useAppSelector((state) => state.cart);
     const productData = useAppSelector((state) => state.product);
     const searchQueryVal = productData?.searchQuery || '';
@@ -39,7 +41,7 @@ const NavBar = () => {
                             onClick={handleClear}
                             style={{
                                 position: 'absolute',
-                                right: '60px', /* Adjusted to fit new layouts */
+                                right: '50px', /* Adjusted for icon-only button */
                                 top: '50%',
                                 transform: 'translateY(-50%)',
                                 width: '20px',
@@ -51,12 +53,18 @@ const NavBar = () => {
                         />
                     )}
                     <button className="search-btn">
-                        <span className="search-text">Search</span>
-                        <Image src="/search-icon.svg" alt="Search" width={20} height={20} className="search-icon" />
+                        <Image src="/search-icon.svg" alt="Search" width={20} height={20} />
                     </button>
                 </div>
                 <ul>
-                    <li className="cart-container">
+                    <li
+                        className="cart-container"
+                        style={{
+                            backgroundColor: pathname === '/cart' ? '#e5e7eb' : 'transparent',
+                            borderBottom: pathname === '/cart' ? '3px solid black' : '3px solid transparent',
+                            transition: 'all 0.2s'
+                        }}
+                    >
                         <Link href="/cart">
                             <span className="cart-text" style={{ marginRight: '0.5rem' }}>Cart</span>
                             <Image src="/cart-icon.svg" alt="Cart" width={24} height={24} />

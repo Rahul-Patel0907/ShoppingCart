@@ -64,21 +64,7 @@ const FilterBar: React.FC<FilterBarProps> = ({ onFilterChange, onSortChange }) =
                         className="flex items-center gap-1.5 text-sm font-medium text-gray-700 hover:text-black transition-colors"
                     >
 
-                        <div className="hidden sm:flex items-center gap-1">
-                            <span className="text-gray-500">Sort by:</span>
-                            <span>{selectedSort}</span>
-                            <svg
-                                className={`w-4 h-4 transition-transform ${isSortOpen ? 'rotate-180' : ''}`}
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </div>
-
-
-                        <div className="sm:hidden p-2 rounded-full hover:bg-gray-100">
+                        <div className="p-2 rounded-full hover:bg-gray-100">
                             <Image src="/sort-icon.svg" alt="Sort" width={24} height={24} />
                         </div>
                     </button>

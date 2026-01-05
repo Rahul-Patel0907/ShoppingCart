@@ -27,6 +27,7 @@ export const fetchProducts = createAsyncThunk(
             price: item.price,
             description: item.description,
             rating: item.rating.rate,
+            ratingCount: item.rating.count,
             category: item.category,
             image: item.image,
         })) as Product[];
